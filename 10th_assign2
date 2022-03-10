@@ -1,0 +1,121 @@
+
+
+SQL> connect abc/aruna
+Connected.
+
+SQL> insert into system.employee values(&no,'&name','&desig',&sal);
+
+SQL> select * from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+       
+       
+SQL> commit;
+
+Commit complete.
+
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL>  insert into system.employee values(&no,'&name','&desig',&sal);
+
+SQL> select * from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+         6 jai                            manager                   40000
+         7 prabha                         asst.manager              25000
+
+SQL> savepoint b;
+
+Savepoint created.
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+       
+       
+SQL>  insert into system.employee values(&no,'&name','&desig',&sal);
+
+SQL> select *from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+       106 kiran                          analyst                   50000
+       107 ravi                           manager                   45000
+
+
+SQL> commit;
+
+Commit complete.
+
+
+SQL> savepoint x;
+
+Savepoint created.
+
+SQL> delete from system.employee where eno=106;
+
+1 row deleted.
+
+SQL> select *from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+       107 ravi                           manager                   45000
+
+6 rows selected.
+
+SQL> rollback to x;
+
+Rollback complete.
+
+SQL> select *from system.employee;
+
+       ENO ENAME                          DESIGN                   SALARY
+---------- ------------------------------ -------------------- ----------
+       101 rahul                          manager                   45000
+       102 amruth                         system engineer           33000
+       103 chandana                       analyst                   40000
+       104 aruna                          s/w developer             30000
+       105 kumar                          team leader               40000
+       106 kiran                          analyst                   40000
+       107 ravi                           manager                   45000
+
+7 rows selected.
+       
+       
+       
