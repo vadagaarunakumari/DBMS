@@ -1,0 +1,30 @@
+
+
+SQL> connect system/aruna
+Connected.
+SQL> create table employee(eno number(4), ename varchar2(30),design varchar2(20),salary number(6));
+
+Table created.
+
+SQL> desc employee
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENO                                                NUMBER(4)
+ ENAME                                              VARCHAR2(30)
+ DESIGN                                             VARCHAR2(20)
+ SALARY                                             NUMBER(6)
+ 
+SQL> grant all on employee to ABC;
+
+Grant succeeded.
+
+SQL> connect abc/aruna
+Connected.
+
+SQL> desc system.employee;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ENO                                                NUMBER(4)
+ ENAME                                              VARCHAR2(30)
+ DESIGN                                             VARCHAR2(20)
+ SALARY                                             NUMBER(6)
