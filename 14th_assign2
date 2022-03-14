@@ -1,0 +1,92 @@
+
+
+SQL> insert into registration values(&redno,'&name','&gender','&qualification',&age);
+
+Enter value for redno: 1001
+Enter value for name: amruth
+Enter value for gender: male
+Enter value for qualification: B.Tech
+Enter value for age: 22
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1001,'amruth','male','B.Tech',22)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 1002
+Enter value for name: chandana
+Enter value for gender: female
+Enter value for qualification: M.Tech
+Enter value for age: 25
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1002,'chandana','female','M.Tech',25)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 1003
+Enter value for name: ravi
+Enter value for gender: male
+Enter value for qualification: Degree
+Enter value for age: 40
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1003,'ravi','male','Degree',40)
+insert into registration values
+*
+ERROR at line 1:
+ORA-02290: check constraint (SYSTEM.SYS_C007052) violated
+
+
+SQL> /
+Enter value for redno: 1003
+Enter value for name: ravi
+Enter value for gender: male
+Enter value for qualification: Degree
+Enter value for age: 28
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1003,'ravi','male','Degree',28)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 1004
+Enter value for name: aruna
+Enter value for gender: female
+Enter value for qualification: M.Sc
+Enter value for age: 29
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1004,'aruna','female','M.Sc',29)
+
+1 row created.
+
+SQL> /
+Enter value for redno: 1005
+Enter value for name: ramya
+Enter value for gender: female
+Enter value for qualification: MBBS
+Enter value for age: 27
+old   2: (&redno,'&name','&gender','&qualification',&age)
+new   2: (1005,'ramya','female','MBBS',27)
+
+1 row created.
+
+
+
+
+SQL> select *from registration;
+
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION               AGE
+---------- ------------------------------ ------- -------------------- ----------
+      1001 amruth                         male    B.Tech                       22
+      1002 chandana                       female  M.Tech                       25
+      1003 ravi                           male    Degree                       28
+      1004 aruna                          female  M.Sc                         29
+      1005 ramya                          female  MBBS                         27
+
+SQL> select *from registration where gender='male';
+
+     REDNO CANDNAME                       GENDER  QUALIFICATION               AGE
+---------- ------------------------------ ------- -------------------- ----------
+      1001 amruth                         male    B.Tech                       22
+      1003 ravi                           male    Degree                       28
