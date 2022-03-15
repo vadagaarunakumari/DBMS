@@ -1,0 +1,14 @@
+
+SQL> create table apsrtc(service_no varchar2(10) primary key,service_type varchar2(20),boarding varchar2(15),upto varchar2(15),kms number(5),ticket_price number(5));
+
+Table created.
+
+SQL> desc apsrtc
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SERVICE_NO                                NOT NULL VARCHAR2(10)
+ SERVICE_TYPE                                       VARCHAR2(20)
+ BOARDING                                           VARCHAR2(15)
+ UPTO                                               VARCHAR2(15)
+ KMS                                                NUMBER(5)
+ TICKET_PRICE                                       NUMBER(5)
