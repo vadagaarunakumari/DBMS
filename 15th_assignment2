@@ -1,0 +1,71 @@
+
+SQL> insert into apsrtc values('&service_num','&service_type','&boarding','&upto',&kms,&price);
+ 
+SQL> select * from APSRTC;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+AP1001     express              kkd             vzg                    180          600
+AP1002     passenger            kkd             vzg                    180          250
+AP1003     express              kkd             vzg                    180          780
+AP1004     passenger            kkd             thirupati              650          300
+AP1005     express              kkd             thirupati              650          980
+AP1006     luxury               kkd             thirupati              650         1800
+AP1007     passenger            vzg             hyd                    720          250
+AP1008     luxury               vzg             hyd                    720         1200
+AP1009     express              vzg             hyd                    720          600
+AP1010     passenger            kkd             rjy                     85           50
+
+10 rows selected.
+
+SQL> update apsrtc set ticket_price=100 where kms > 500;
+
+6 rows updated.
+
+SQL> select * from apsrtc;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+AP1001     express              kkd             vzg                    180          600
+AP1002     passenger            kkd             vzg                    180          250
+AP1003     express              kkd             vzg                    180          780
+AP1004     passenger            kkd             thirupati              650          100
+AP1005     express              kkd             thirupati              650          100
+AP1006     luxury               kkd             thirupati              650          100
+AP1007     passenger            vzg             hyd                    720          100
+AP1008     luxury               vzg             hyd                    720          100
+AP1009     express              vzg             hyd                    720          100
+AP1010     passenger            kkd             rjy                     85           50
+
+10 rows selected.
+
+SQL> update apsrtc set ticket_price=50 where kms < 500;
+
+4 rows updated.
+
+SQL> select * from apsrtc;
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+AP1001     express              kkd             vzg                    180           50
+AP1002     passenger            kkd             vzg                    180           50
+AP1003     express              kkd             vzg                    180           50
+AP1004     passenger            kkd             thirupati              650          100
+AP1005     express              kkd             thirupati              650          100
+AP1006     luxury               kkd             thirupati              650          100
+AP1007     passenger            vzg             hyd                    720          100
+AP1008     luxury               vzg             hyd                    720          100
+AP1009     express              vzg             hyd                    720          100
+AP1010     passenger            kkd             rjy                     85           50
+
+10 rows selected.
+
+
+SQL> select * from apsrtc where boarding='vzg' and upto='hyd';
+
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+AP1007     passenger            vzg             hyd                    720          100
+AP1008     luxury               vzg             hyd                    720          100
+AP1009     express              vzg             hyd                    720          100
+
