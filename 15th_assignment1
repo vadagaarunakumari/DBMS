@@ -1,0 +1,33 @@
+
+SQL> create table apsrtc(service_no varchar2(10) primary key,service_type varchar2(20),boarding varchar2(15),upto varchar2(15),kms number(5),ticket_price number(5));
+
+Table created.
+
+SQL> desc apsrtc
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SERVICE_NO                                NOT NULL VARCHAR2(10)
+ SERVICE_TYPE                                       VARCHAR2(20)
+ BOARDING                                           VARCHAR2(15)
+ UPTO                                               VARCHAR2(15)
+ KMS                                                NUMBER(5)
+ TICKET_PRICE                                       NUMBER(5)
+ 
+ 
+ SQL> select * from apsrtc;
+ 
+ 
+SERVICE_NO SERVICE_TYPE         BOARDING        UPTO                   KMS TICKET_PRICE
+---------- -------------------- --------------- --------------- ---------- ------------
+AP1001     luxury               kkd             rjy                     85          100
+AP1002     passenger            kkd             rjy                     85           50
+AP1003     express              kkd             rjy                     85           75
+AP1004     luxury               vzg             kkd                    180          800
+AP1005     express              vzg             kkd                    180          500
+AP1006     passenger            vzg             kkd                    180          230
+AP1007     luxury               kkd             tirupati               600         2500
+AP1008     express              kkd             tirupati               600         1400
+AP1009     passenger            kkd             tirupati               600          860
+AP1010     express              vskp            hyd                    650         2000
+
+10 rows selected.
