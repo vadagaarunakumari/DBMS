@@ -1,0 +1,43 @@
+
+SQL> create table restaurant(billid int,custname varchar2(30),phno number(10),amount number(5));
+
+Table created.
+
+
+SQL> desc restaurant
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BILLID                                             NUMBER(38)
+ CUSTNAME                                           VARCHAR2(30)
+ PHNO                                               NUMBER(10)
+ AMOUNT                                             NUMBER(5)
+
+
+SQL> create sequence code
+  2  start with 100001
+  3  increment by 1
+  4  minvalue 100001
+  5  maxvalue 100050
+  6  cycle;
+
+Sequence created.
+
+
+SQL>  insert into restaurant (billid,custname,phno,amount)values(code.nextval,'&custname',&phno,&amount);
+
+SQL> select *from restaurant;
+
+    BILLID CUSTNAME                             PHNO     AMOUNT
+---------- ------------------------------ ---------- ----------
+    100001 amruth                         9878977898       9000
+    100002 bhushan                        9878688787       8900
+    100003 aruna                          9878967888       9800
+    100004 kumari                         9809878777       7800
+    100005 Jarge                          9878989888       9005
+    100006 hari                           9877754536       6000
+    100007 Jamuna                         9867856444       4000
+    100008 chandana                       9867855777       8000
+    100009 abbu                           9877756443       9000
+    100010 Jai                            9878977865       7800
+
+10 rows selected.
