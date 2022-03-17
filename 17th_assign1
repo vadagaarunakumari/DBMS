@@ -1,0 +1,90 @@
+
+ASSIGNMENT-1   vadaga arunakumari   Awdckkd
+
+SQL> create table stud(regno number(4) primary key,sname varchar2(30),grp varchar2(10),email_id varchar2(30),phno number(10));
+
+Table created.
+
+SQL> desc stud
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL NUMBER(4)
+ SNAME                                              VARCHAR2(30)
+ GRP                                                VARCHAR2(10)
+ EMAIL_ID                                           VARCHAR2(30)
+ PHNO                                               NUMBER(10)
+ 
+SQL> create table exam(regno number(4) references stud(regno),s1 number(3),s2 number(3),s3 number(3),total number(5),avg number(5,2));
+
+Table created.
+
+SQL> desc exam
+ Name                                                                                Null?    Type
+ ----------------------------------------------------------------------------------- -------- --------------------------------------------------------
+ REGNO                                                                                        NUMBER(4)
+ S1                                                                                           NUMBER(3)
+ S2                                                                                           NUMBER(3)
+ S3                                                                                           NUMBER(3)
+ TOTAL                                                                                        NUMBER(5)
+ AVG                                                                                          NUMBER(5,2)
+
+SQL> insert into stud values(&regno,'&name','&group','&email',&phno);
+
+SQL> select * from stud;
+
+
+     REGNO SNAME                          GRP        EMAIL_ID                             PHNO
+---------- ------------------------------ ---------- ------------------------------ ----------
+       101 amruth                         mscs       amruth@email.com               9878967888
+       102 bhushan                        mscs       bhushan@gmail.com              9876856444
+       103 aruna                          mpcs       aruna@gmail.com                9856766787
+       104 kumari                         mpcs       kumari@gmail.com               8978766789
+       105 hari                           mpcs       hari@gmail.com                 9809890908
+       106 chandana                       mecs       chandana@gmail.com             9809878990
+       107 abbu                           mecs       abbu@gmail.com                 9809878788
+       108 bunny                          mpcs       bunny@gmail.com                9878767676
+       109 ravi                           mscs       ravi@gmail.com                 9809890908
+       110 suresh                         mpcs       suresh@gmail.com               9809878678
+
+10 rows selected.
+
+SQL> insert into exam(regno,s1,s2,s3)values(&regno ,&s1,&s2,&s3);
+
+SQL> select * from exam;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+       101         45         67         89
+       102         56         89         88
+       103         45         55         88
+       104         88         77         67
+       105         89         56         77
+       106         89         88         77
+       107         56         55         88
+       108         66         55         89
+       109         56         77         99
+       110         67         45         88
+
+10 rows selected.
+
+SQL> update exam set total=s1+s2+s3 ,avg=(s1+s2+s3)/3;
+
+10 rows updated.
+
+SQL> select * from exam;
+
+     REGNO         S1         S2         S3      TOTAL        AVG
+---------- ---------- ---------- ---------- ---------- ----------
+       101         45         67         89        201         67
+       102         56         89         88        233      77.67
+       103         45         55         88        188      62.67
+       104         88         77         67        232      77.33
+       105         89         56         77        222         74
+       106         89         88         77        254      84.67
+       107         56         55         88        199      66.33
+       108         66         55         89        210         70
+       109         56         77         99        232      77.33
+       110         67         45         88        200      66.67
+
+10 rows selected.
+
