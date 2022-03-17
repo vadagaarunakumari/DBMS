@@ -1,0 +1,115 @@
+ASSIGNMENT-2    vadaga arunakumari   Awdckkd
+
+SQL> create view result as select stud.regno,stud.sname,stud.grp,exam.s1,exam.s2,exam.s3,exam.total,exam.avg from stud,exam;
+
+View created.
+
+SQL> select * from result;
+
+     REGNO SNAME                          GRP                S1         S2         S3      TOTAL        AVG
+---------- ------------------------------ ---------- ---------- ---------- ---------- ---------- ----------
+       101 amruth                         mscs               45         67         89        201         67
+       102 bhushan                        mscs               45         67         89        201         67
+       103 aruna                          mpcs               45         67         89        201         67
+       104 kumari                         mpcs               45         67         89        201         67
+       105 hari                           mpcs               45         67         89        201         67
+       106 chandana                       mecs               45         67         89        201         67
+       107 abbu                           mecs               45         67         89        201         67
+       108 bunny                          mpcs               45         67         89        201         67
+       109 ravi                           mscs               45         67         89        201         67
+       110 suresh                         mpcs               45         67         89        201         67
+       101 amruth                         mscs               56         89         88        233      77.67
+       102 bhushan                        mscs               56         89         88        233      77.67
+       103 aruna                          mpcs               56         89         88        233      77.67
+       104 kumari                         mpcs               56         89         88        233      77.67
+       105 hari                           mpcs               56         89         88        233      77.67
+       106 chandana                       mecs               56         89         88        233      77.67
+       107 abbu                           mecs               56         89         88        233      77.67
+       108 bunny                          mpcs               56         89         88        233      77.67
+       109 ravi                           mscs               56         89         88        233      77.67
+       110 suresh                         mpcs               56         89         88        233      77.67
+       101 amruth                         mscs               45         55         88        188      62.67
+       102 bhushan                        mscs               45         55         88        188      62.67
+       103 aruna                          mpcs               45         55         88        188      62.67
+       104 kumari                         mpcs               45         55         88        188      62.67
+       105 hari                           mpcs               45         55         88        188      62.67
+       106 chandana                       mecs               45         55         88        188      62.67
+       107 abbu                           mecs               45         55         88        188      62.67
+       108 bunny                          mpcs               45         55         88        188      62.67
+       109 ravi                           mscs               45         55         88        188      62.67
+       110 suresh                         mpcs               45         55         88        188      62.67
+       101 amruth                         mscs               88         77         67        232      77.33
+       102 bhushan                        mscs               88         77         67        232      77.33
+       103 aruna                          mpcs               88         77         67        232      77.33
+       104 kumari                         mpcs               88         77         67        232      77.33
+       105 hari                           mpcs               88         77         67        232      77.33
+       106 chandana                       mecs               88         77         67        232      77.33
+       107 abbu                           mecs               88         77         67        232      77.33
+       108 bunny                          mpcs               88         77         67        232      77.33
+       109 ravi                           mscs               88         77         67        232      77.33
+       110 suresh                         mpcs               88         77         67        232      77.33
+       101 amruth                         mscs               89         56         77        222         74
+       102 bhushan                        mscs               89         56         77        222         74
+       103 aruna                          mpcs               89         56         77        222         74
+       104 kumari                         mpcs               89         56         77        222         74
+       105 hari                           mpcs               89         56         77        222         74
+       106 chandana                       mecs               89         56         77        222         74
+       107 abbu                           mecs               89         56         77        222         74
+       108 bunny                          mpcs               89         56         77        222         74
+       109 ravi                           mscs               89         56         77        222         74
+       110 suresh                         mpcs               89         56         77        222         74
+       101 amruth                         mscs               89         88         77        254      84.67
+       102 bhushan                        mscs               89         88         77        254      84.67
+       103 aruna                          mpcs               89         88         77        254      84.67
+       104 kumari                         mpcs               89         88         77        254      84.67
+       105 hari                           mpcs               89         88         77        254      84.67
+       106 chandana                       mecs               89         88         77        254      84.67
+       107 abbu                           mecs               89         88         77        254      84.67
+       108 bunny                          mpcs               89         88         77        254      84.67
+       109 ravi                           mscs               89         88         77        254      84.67
+       110 suresh                         mpcs               89         88         77        254      84.67
+       101 amruth                         mscs               56         55         88        199      66.33
+       102 bhushan                        mscs               56         55         88        199      66.33
+       103 aruna                          mpcs               56         55         88        199      66.33
+       104 kumari                         mpcs               56         55         88        199      66.33
+       105 hari                           mpcs               56         55         88        199      66.33
+       106 chandana                       mecs               56         55         88        199      66.33
+       107 abbu                           mecs               56         55         88        199      66.33
+       108 bunny                          mpcs               56         55         88        199      66.33
+       109 ravi                           mscs               56         55         88        199      66.33
+       110 suresh                         mpcs               56         55         88        199      66.33
+       101 amruth                         mscs               66         55         89        210         70
+       102 bhushan                        mscs               66         55         89        210         70
+       103 aruna                          mpcs               66         55         89        210         70
+       104 kumari                         mpcs               66         55         89        210         70
+       105 hari                           mpcs               66         55         89        210         70
+       106 chandana                       mecs               66         55         89        210         70
+       107 abbu                           mecs               66         55         89        210         70
+       108 bunny                          mpcs               66         55         89        210         70
+       109 ravi                           mscs               66         55         89        210         70
+       110 suresh                         mpcs               66         55         89        210         70
+       101 amruth                         mscs               56         77         99        232      77.33
+       102 bhushan                        mscs               56         77         99        232      77.33
+       103 aruna                          mpcs               56         77         99        232      77.33
+       104 kumari                         mpcs               56         77         99        232      77.33
+       105 hari                           mpcs               56         77         99        232      77.33
+       106 chandana                       mecs               56         77         99        232      77.33
+       107 abbu                           mecs               56         77         99        232      77.33
+
+     REGNO SNAME                          GRP                S1         S2         S3      TOTAL        AVG
+---------- ------------------------------ ---------- ---------- ---------- ---------- ---------- ----------
+       108 bunny                          mpcs               56         77         99        232      77.33
+       109 ravi                           mscs               56         77         99        232      77.33
+       110 suresh                         mpcs               56         77         99        232      77.33
+       101 amruth                         mscs               67         45         88        200      66.67
+       102 bhushan                        mscs               67         45         88        200      66.67
+       103 aruna                          mpcs               67         45         88        200      66.67
+       104 kumari                         mpcs               67         45         88        200      66.67
+       105 hari                           mpcs               67         45         88        200      66.67
+       106 chandana                       mecs               67         45         88        200      66.67
+       107 abbu                           mecs               67         45         88        200      66.67
+       108 bunny                          mpcs               67         45         88        200      66.67
+       109 ravi                           mscs               67         45         88        200      66.67
+       110 suresh                         mpcs               67         45         88        200      66.67
+
+100 rows selected.
