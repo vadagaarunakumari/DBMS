@@ -1,0 +1,60 @@
+ASSIGNMENT-1   VADAGA ARUNAKUMARI  awdckkd
+
+
+SQL> create table shoppingmall(billid number(4),custname varchar2(25),phno number(10),billamount number(8,2));
+
+Table created.
+
+SQL> desc shoppingmall
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BILLID                                             NUMBER(4)
+ CUSTNAME                                           VARCHAR2(25)
+ PHNO                                               NUMBER(10)
+ BILLAMOUNT                                         NUMBER(8,2)
+
+SQL> insert into shoppingmall values(&bill,'&name',&phno,&amount);
+
+SQL> select * from shoppingmall;
+
+    BILLID CUSTNAME                        PHNO BILLAMOUNT
+---------- ------------------------- ---------- ----------
+       101 amruth                    9878978678       6790
+       102 bhushan                   9867845333       9005
+       103 aruna                     9870989800       6500
+       104 kumari                    9870067909       9000
+       105 hari                      9856745666       8000
+       106 chandana                  9089078667       9070
+       107 abbu                      9867656456       5600
+
+7 rows selected.
+
+SQL> select sum(billamount) from shoppingmall;
+
+SUM(BILLAMOUNT)
+---------------
+          53965
+
+SQL> select max(billamount) from shoppingmall;
+
+MAX(BILLAMOUNT)
+---------------
+           9070
+
+SQL> select min(billamount) from shoppingmall;
+
+MIN(BILLAMOUNT)
+---------------
+           5600
+
+SQL> select avg(billamount) from shoppingmall;
+
+AVG(BILLAMOUNT)
+---------------
+     7709.28571
+
+SQL> select count(custname) from shoppingmall;
+
+COUNT(CUSTNAME)
+---------------
+              7
