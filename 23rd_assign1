@@ -1,0 +1,29 @@
+
+SQL> create table emp(empno number(4),empname varchar2(20),empdesig varchar2(20),empsal number(5));
+
+Table created.
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(4)
+ EMPNAME                                            VARCHAR2(20)
+ EMPDESIG                                           VARCHAR2(20)
+ EMPSAL                                             NUMBER(5)
+
+SQL> insert into emp values(&no,'&name','&desig',&sal);
+SQL> select * from emp;
+
+     EMPNO EMPNAME              EMPDESIG                 EMPSAL
+---------- -------------------- -------------------- ----------
+       101 amruth               analyst                   35000
+       102 bhushan              engineer                  30000
+       103 aruna                developer                 35000
+       104 kumari               scientist                 40000
+       105 hari                 designer                  50000
+       106 chandana             analyst                   35000
+       107 siddartha            designer                  60000
+       108 gopi                 manager                   65000
+       109 gayatri              ceo                       98000
+       110 anjali               analyst                   45000
+
+10 rows selected.
