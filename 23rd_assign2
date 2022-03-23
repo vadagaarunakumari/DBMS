@@ -1,0 +1,65 @@
+
+SQL> set serveroutput on
+
+SQL> declare
+  2  x int;
+  3  begin
+  4  update emp set empsal=empsal+6500 where empsal>45000 and empsal<85000;
+  5  if sql%notfound then
+  6  dbms_output.put_line('not updated');
+  7  elsif sql%found then
+  8  x:=sql%rowcount;
+  9  dbms_output.put_line(x||'  emp salaries updated');
+ 10  end if;
+ 11  end;
+ 12
+ 13  /
+3  emp salaries updated
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from emp;
+
+     EMPNO EMPNAME              EMPDESIG                 EMPSAL
+---------- -------------------- -------------------- ----------
+       101 amruth               analyst                   35000
+       102 bhushan              engineer                  30000
+       103 aruna                developer                 35000
+       104 kumari               scientist                 40000
+       105 hari                 designer                  56500
+       106 chandana             analyst                   35000
+       107 siddartha            designer                  66500
+       108 gopi                 manager                   71500
+       109 gayatri              ceo                       98000
+       110 anjali               analyst                   45000
+
+10 rows selected.
+
+SQL> declare
+  2  no emp.empno%type;
+  3  name emp.empname%type;
+  4  sal emp.empsal%type;
+  5  cursor e is select empno,empname,empsal from emp;
+  6  begin
+  7  open e;
+  8  loop
+  9  fetch e into no,name,sal;
+ 10  exit when e%notfound;
+ 11  dbms_output.put_line('emp number='||no||'  emp name='||name||'  emp salary='||sal);
+ 12  end loop;
+ 13  close e;
+ 14  end;
+ 15
+ 16  /
+emp number=101  emp name=amruth  emp salary=35000
+emp number=102  emp name=bhushan  emp salary=30000
+emp number=103  emp name=aruna  emp salary=35000
+emp number=104  emp name=kumari  emp salary=40000
+emp number=105  emp name=hari  emp salary=56500
+emp number=106  emp name=chandana  emp salary=35000
+emp number=107  emp name=siddartha  emp salary=66500
+emp number=108  emp name=gopi  emp salary=71500
+emp number=109  emp name=gayatri  emp salary=98000
+emp number=110  emp name=anjali  emp salary=45000
+
+PL/SQL procedure successfully completed.
