@@ -1,0 +1,34 @@
+SQL> create table employee(eno number(4),ename varchar2(20),design varchar2(20),dob date,doj date,salary number(6));
+
+Table created.
+
+SQL> insert into employee values(&no,'&name','&desig','&dob','&doj',&sal);
+
+SQL> select * from employee;
+      ENO ENAME                DESIGN               DOB       DOJ           SALARY
+---------- -------------------- -------------------- --------- --------- ----------
+       101 hari                 analyst              23-MAR-95 03-JAN-00      56000
+       102 amruth               developer            10-FEB-00 10-OCT-21      45000
+       103 bhushan              scientist            04-AUG-96 17-OCT-09      34000
+       104 chandana             analyst              09-SEP-99 09-NOV-21      35000
+       105 aruna                programmer           08-JUL-80 08-AUG-10      25000
+
+SQL> select eno,ename,trunc((sysdate-to_date(doj))/365.25,0) as experience_in_years from employee;
+
+       ENO ENAME                EXPERIENCE_IN_YEARS
+---------- -------------------- -------------------
+       101 hari                                  22
+       102 amruth                                 0
+       103 bhushan                               12
+       104 chandana                               0
+       105 aruna                                 11
+
+SQL> select eno,ename,trunc((sysdate-to_date(dob))/365.25,0) as age_in_years from employee;
+
+       ENO ENAME                AGE_IN_YEARS
+---------- -------------------- ------------
+       101 hari                           27
+       102 amruth                         34
+       103 bhushan                        25
+       104 chandana                       22
+       105 aruna                          41
