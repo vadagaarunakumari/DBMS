@@ -1,0 +1,51 @@
+
+SQL> select * from employee;
+
+       ENO ENAME                DESIGN               DOB       DOJ           SALARY
+---------- -------------------- -------------------- --------- --------- ----------
+       101 hari                 analyst              23-MAR-95 03-JAN-00      56000
+       102 amruth               developer            10-FEB-02 10-OCT-21      45000
+       103 bhushan              scientist            04-AUG-96 17-OCT-09      34000
+       104 chandana             analyst              09-SEP-99 09-NOV-21      35000
+       105 aruna                programmer           08-JUL-80 08-AUG-10      25000
+       
+       SQL> create trigger e_sal
+  2  before update on employee
+  3  for each row
+  4  when(new.eno>100)
+  5  declare
+  6  sal int;
+  7  begin
+  8  sal:=:new.salary-:old.salary;
+  9  dbms_output.put_line('old salary : '||:old.salary);
+ 10  dbms_output.put_line('new salary : '||:new.salary);
+ 11  dbms_output.put_line('increment  : '||sal);
+ 12  end;
+ 13  /
+
+Trigger created.
+
+SQL> declare
+  2  increm int;
+  3  begin
+  4  update employee set salary=salary+7500;
+  5  if sql%notfound then
+  6  dbms_output.put_line('no salary updated');
+  7  elsif sql%found then
+  8  increm:=sql%rowcount;
+  9  dbms_output.put_line(increm ||' employee salaries updated');
+ 10  end if;
+ 11  end;
+ 12  /
+
+PL/SQL procedure successfully completed.
+
+SQL> select * from employee;
+
+       ENO ENAME                DESIGN               DOB       DOJ           SALARY
+---------- -------------------- -------------------- --------- --------- ----------
+       101 hari                 analyst              23-MAR-95 03-JAN-00      63500
+       102 amruth               developer            10-FEB-88 10-OCT-21      52500
+       103 bhushan              scientist            04-AUG-96 17-OCT-09      41500
+       104 chandana             analyst              09-SEP-99 09-NOV-21      42500
+       105 aruna                programmer           08-JUL-80 08-AUG-10      32500
